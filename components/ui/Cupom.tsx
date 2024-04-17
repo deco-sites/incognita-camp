@@ -27,8 +27,10 @@ function Cupom({ cupom }: Props) {
     <li class="w-full flex justify-center">
       <div class="flex flex-col lg:flex-row max-w-[310px] lg:max-w-[initial]">
         <div class="flex overflow-hidden relative">
-          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full bottom-[-15px] left-[-17px] lg:left-[initial] lg:bottom-[initial] lg:top-[-15px] lg:right-[-17px]"></div>
-          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full bottom-[-15px] right-[-17px]"></div>
+          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full bottom-[-15px] left-[-17px] lg:left-[initial] lg:bottom-[initial] lg:top-[-15px] lg:right-[-17px]">
+          </div>
+          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full bottom-[-15px] right-[-17px]">
+          </div>
         </div>
         <div class="overflow-hidden relative">
           <div class="border border-solid border-[#d9d9d9] h-full pl-[18px] lg:pl-[30px] pr-[18px] pt-6 pb-[22px] flex flex-col">
@@ -60,10 +62,13 @@ function Cupom({ cupom }: Props) {
               </button>
             </div>
           </div>
-          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full top-[-15px] left-[-17px]"></div>
-          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full top-[-15px] right-[-17px] lg:top-[initial] lg:right-[initial] lg:bottom-[-15px] lg:left-[-17px]"></div>
+          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full top-[-15px] left-[-17px]">
+          </div>
+          <div class="absolute bg-white w-[37px] h-[37px] border border-solid border-[#d9d9d9] rounded-full top-[-15px] right-[-17px] lg:top-[initial] lg:right-[initial] lg:bottom-[-15px] lg:left-[-17px]">
+          </div>
         </div>
-        <div class="w-full lg:w-[22px] h-[31px] lg:h-full bg-cover bg-no-repeat bg-[url(https://openbox.vteximg.com.br/arquivos/background-cupom-border-mobile.png)] lg:bg-[url(https://openbox.vteximg.com.br/arquivos/background-cupom-border-desk.png)]"></div>
+        <div class="w-full lg:w-[22px] h-[31px] lg:h-full bg-cover bg-no-repeat bg-[url(https://openbox.vteximg.com.br/arquivos/background-cupom-border-mobile.png)] lg:bg-[url(https://openbox.vteximg.com.br/arquivos/background-cupom-border-desk.png)]">
+        </div>
       </div>
     </li>
   );

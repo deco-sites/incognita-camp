@@ -2,12 +2,17 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $$$$$$$$$0 from "./actions/sendLike.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
+import * as $$$$$$$$0 from "./flags/multivariate/productVariant.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
 import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
+import * as $$$4 from "./loaders/productLikes.ts";
+import * as $$$5 from "./loaders/totalLikes.ts";
+import * as $$$$$$$0 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarouselWithImage.tsx";
@@ -44,19 +49,21 @@ import * as $$$$$$32 from "./sections/Miscellaneous/CampaignTimer.tsx";
 import * as $$$$$$33 from "./sections/Miscellaneous/CookieConsent.tsx";
 import * as $$$$$$34 from "./sections/Miscellaneous/Slide.tsx";
 import * as $$$$$$35 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$36 from "./sections/Product/ImageGalleryFrontBack.tsx";
-import * as $$$$$$37 from "./sections/Product/NotFound.tsx";
-import * as $$$$$$38 from "./sections/Product/NotFoundChallenge.tsx";
-import * as $$$$$$39 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$40 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$41 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$42 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$43 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$44 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$45 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$46 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$47 from "./sections/Temperature.tsx";
-import * as $$$$$$48 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$36 from "./sections/PartialImageGallery.tsx";
+import * as $$$$$$37 from "./sections/Product/HorizontalProductCard.tsx";
+import * as $$$$$$38 from "./sections/Product/ImageGalleryFrontBack.tsx";
+import * as $$$$$$39 from "./sections/Product/NotFound.tsx";
+import * as $$$$$$40 from "./sections/Product/NotFoundChallenge.tsx";
+import * as $$$$$$41 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$42 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$43 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$44 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$45 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$46 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$47 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$48 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$49 from "./sections/Temperature.tsx";
+import * as $$$$$$50 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -64,6 +71,8 @@ const manifest = {
     "deco-sites/incognita-camp/loaders/icons.ts": $$$3,
     "deco-sites/incognita-camp/loaders/Layouts/ProductCard.tsx": $$$0,
     "deco-sites/incognita-camp/loaders/List/Sections.tsx": $$$1,
+    "deco-sites/incognita-camp/loaders/productLikes.ts": $$$4,
+    "deco-sites/incognita-camp/loaders/totalLikes.ts": $$$5,
   },
   "sections": {
     "deco-sites/incognita-camp/sections/Animation/Animation.tsx": $$$$$$0,
@@ -106,22 +115,34 @@ const manifest = {
       $$$$$$33,
     "deco-sites/incognita-camp/sections/Miscellaneous/Slide.tsx": $$$$$$34,
     "deco-sites/incognita-camp/sections/Newsletter/Newsletter.tsx": $$$$$$35,
+    "deco-sites/incognita-camp/sections/PartialImageGallery.tsx": $$$$$$36,
+    "deco-sites/incognita-camp/sections/Product/HorizontalProductCard.tsx":
+      $$$$$$37,
     "deco-sites/incognita-camp/sections/Product/ImageGalleryFrontBack.tsx":
-      $$$$$$36,
-    "deco-sites/incognita-camp/sections/Product/NotFound.tsx": $$$$$$37,
-    "deco-sites/incognita-camp/sections/Product/NotFoundChallenge.tsx":
       $$$$$$38,
-    "deco-sites/incognita-camp/sections/Product/ProductDetails.tsx": $$$$$$39,
-    "deco-sites/incognita-camp/sections/Product/ProductShelf.tsx": $$$$$$40,
+    "deco-sites/incognita-camp/sections/Product/NotFound.tsx": $$$$$$39,
+    "deco-sites/incognita-camp/sections/Product/NotFoundChallenge.tsx":
+      $$$$$$40,
+    "deco-sites/incognita-camp/sections/Product/ProductDetails.tsx": $$$$$$41,
+    "deco-sites/incognita-camp/sections/Product/ProductShelf.tsx": $$$$$$42,
     "deco-sites/incognita-camp/sections/Product/ProductShelfTabbed.tsx":
-      $$$$$$41,
-    "deco-sites/incognita-camp/sections/Product/SearchResult.tsx": $$$$$$42,
-    "deco-sites/incognita-camp/sections/Product/ShelfWithImage.tsx": $$$$$$43,
-    "deco-sites/incognita-camp/sections/Product/Wishlist.tsx": $$$$$$44,
-    "deco-sites/incognita-camp/sections/Social/InstagramPosts.tsx": $$$$$$45,
-    "deco-sites/incognita-camp/sections/Social/WhatsApp.tsx": $$$$$$46,
-    "deco-sites/incognita-camp/sections/Temperature.tsx": $$$$$$47,
-    "deco-sites/incognita-camp/sections/Theme/Theme.tsx": $$$$$$48,
+      $$$$$$43,
+    "deco-sites/incognita-camp/sections/Product/SearchResult.tsx": $$$$$$44,
+    "deco-sites/incognita-camp/sections/Product/ShelfWithImage.tsx": $$$$$$45,
+    "deco-sites/incognita-camp/sections/Product/Wishlist.tsx": $$$$$$46,
+    "deco-sites/incognita-camp/sections/Social/InstagramPosts.tsx": $$$$$$47,
+    "deco-sites/incognita-camp/sections/Social/WhatsApp.tsx": $$$$$$48,
+    "deco-sites/incognita-camp/sections/Temperature.tsx": $$$$$$49,
+    "deco-sites/incognita-camp/sections/Theme/Theme.tsx": $$$$$$50,
+  },
+  "matchers": {
+    "deco-sites/incognita-camp/matchers/utm.ts": $$$$$$$0,
+  },
+  "flags": {
+    "deco-sites/incognita-camp/flags/multivariate/productVariant.ts": $$$$$$$$0,
+  },
+  "actions": {
+    "deco-sites/incognita-camp/actions/sendLike.ts": $$$$$$$$$0,
   },
   "apps": {
     "deco-sites/incognita-camp/apps/decohub.ts": $$$$$$$$$$$0,

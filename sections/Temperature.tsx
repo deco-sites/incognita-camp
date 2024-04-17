@@ -1,28 +1,26 @@
-import weather, {
-  Props as TemperatureLoaderProps,
-} from "apps/weather/loaders/temperature.ts";
-import { SectionProps } from "deco/types.ts";
+import type { Temperature } from "apps/weather/loaders/temperature.ts";
 
-interface TemperatureSectionProps {
-  /** @title Locality registration */
-  latLong: TemperatureLoaderProps;
+interface Props {
+  temperatureValue: Temperature | null;
 }
 
-export const loader = async (
-  { latLong }: TemperatureSectionProps,
-  req: Request
-) => {
-  const temperature = await weather(latLong, req);
-
-  return {
-    temperature,
-  };
+const getBgColor = (temp: number) => {
+  if (temp <= 18) return `bg-blue-500 hover:bg-blue-600`;
+  if (temp <= 25) return `bg-green-500 hover:bg-green-600`;
+  if (temp <= 28) return `bg-orange-500 hover:bg-orange-600`;
+  return `bg-rose-500 hover:bg-rose-600`;
 };
 
-const Temperature = ({ temperature }: SectionProps<typeof loader>) => {
+const Temperature = ({ temperatureValue }: Props) => {
+  const temperature = Math.floor(temperatureValue?.celsius ?? 0);
+
+  const bg = getBgColor(temperature);
+
   return (
-    <button className="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white rounded-full p-2">
-      {temperature?.celsius}º
+    <button
+      className={`fixed bottom-4 right-4 text-white p-4 rounded-full  aspect-square ${bg}`}
+    >
+      {temperature}ºc
     </button>
   );
 };

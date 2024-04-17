@@ -20,6 +20,7 @@ export default function RichText({
         maxWidth: containerWidth ? containerWidth : 1440,
         margin: "0 auto",
       }}
-    ></div>
+    >
+    </div>
   );
 }
