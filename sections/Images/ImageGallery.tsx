@@ -37,6 +37,7 @@ export interface Props {
    * @minItems 4
    */
   banners?: Banner[];
+  lcp?: boolean;
   layout?: {
     /**
      * @description Aplique borda a sua imagem
@@ -130,9 +131,10 @@ function Banner(
       /** @default none */
       desktop?: BorderRadius;
     };
+    lcp?: boolean;
   }
 ) {
-  const { borderRadius, srcMobile, srcDesktop, alt } = props;
+  const { borderRadius, srcMobile, srcDesktop, alt, lcp } = props;
   const radiusDesktop = RADIUS.desktop[borderRadius?.desktop ?? "none"];
   const radiusMobile = RADIUS.mobile[borderRadius?.desktop ?? "none"];
 
@@ -160,7 +162,7 @@ function Banner(
           src={srcMobile}
           alt={alt}
           decoding="async"
-          loading="lazy"
+          loading={lcp ? "eager" : "lazy"}
         />
       </Picture>
     </a>
@@ -168,7 +170,7 @@ function Banner(
 }
 
 export default function Gallery(props: Props) {
-  const { title, description, banners, layout } = {
+  const { title, description, banners, layout, lcp } = {
     ...DEFAULT_PROPS,
     ...props,
   };
@@ -197,7 +199,11 @@ export default function Gallery(props: Props) {
       <ul class="grid grid-flow-col grid-cols-1 grid-rows-12 md:grid-cols-2 md:grid-rows-6 gap-4 list-none">
         {banners?.map((banner, index) => (
           <li class={`${mobileItemLayout(index)} ${desktopItemLayout(index)}`}>
-            <Banner {...banner} borderRadius={props.layout?.borderRadius} />
+            <Banner
+              {...banner}
+              borderRadius={props.layout?.borderRadius}
+              lcp={lcp && index <= 1}
+            />
           </li>
         ))}
       </ul>
